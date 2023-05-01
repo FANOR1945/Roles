@@ -18,13 +18,16 @@ ExpressApp.use(cors({ origin: '*' }));
 //routes
 //const authRoutes = require('./routes/auth/auth.routes');
 
-const userRoutes = require('./routes/roles/user.routes');
-//const roleRoutes = require('./routes/role/role.routes');
+const usersRoutes = require('./routes/roles/user.routes');
+const permissionsRoutes = require('./routes/roles/permission.routes');
+const rolesRoutes = require('./routes/roles/role.routes');
 
 //const especiesRoutes = require('./routes/service/specie.routes');
-ExpressApp.use('/users', userRoutes);
+ExpressApp.use('/users', usersRoutes);
+ExpressApp.use('/permissions', permissionsRoutes);
+ExpressApp.use('/roles', rolesRoutes);
 /*ExpressApp.use('/auth', authRoutes);
-ExpressApp.use('/rols', roleRoutes);
+
 ExpressApp.use('/species', especiesRoutes);*/
 ExpressApp.listen(Port, LOCALHOST, () => {
   console.log(`Server is running on http://${LOCALHOST}:${Port}`);

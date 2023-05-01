@@ -21,10 +21,7 @@ const UserSchema = new Schema({
     required: true,
     default: true,
   },
-  //role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
-  role: {
-    type: String,
-  },
+  role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
 });
 
 module.exports = mongoose.model('User', UserSchema);

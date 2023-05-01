@@ -1,6 +1,7 @@
-const Permission = require('./permission.model');
+const Permission = require('../../models/roles/permission.model');
+const permissionController = {};
 
-exports.createPermission = async (req, res, next) => {
+permissionController.createPermission = async (req, res, next) => {
   try {
     const permission = await Permission.create(req.body);
     res.status(201).json({ success: true, data: permission });
@@ -9,7 +10,7 @@ exports.createPermission = async (req, res, next) => {
   }
 };
 
-exports.getPermissions = async (req, res, next) => {
+permissionController.getPermissions = async (req, res, next) => {
   try {
     const permissions = await Permission.find();
     res.status(200).json({ success: true, data: permissions });
@@ -18,9 +19,9 @@ exports.getPermissions = async (req, res, next) => {
   }
 };
 
-exports.getPermission = async (req, res, next) => {
+permissionController.getPermission = async (req, res, next) => {
   try {
-    const permission = await Permission.findById(req.params.id);
+    const permission = await Permission.findOne({ name: req.params.name });
     if (!permission) {
       return res
         .status(404)
@@ -32,10 +33,10 @@ exports.getPermission = async (req, res, next) => {
   }
 };
 
-exports.updatePermission = async (req, res, next) => {
+permissionController.updatePermission = async (req, res, next) => {
   try {
-    const permission = await Permission.findByIdAndUpdate(
-      req.params.id,
+    const permission = await Permission.findOneAndUpdate(
+      { name: req.params.name },
       req.body,
       { new: true }
     );
@@ -49,3 +50,5 @@ exports.updatePermission = async (req, res, next) => {
     next(error);
   }
 };
+
+module.exports = permissionController;

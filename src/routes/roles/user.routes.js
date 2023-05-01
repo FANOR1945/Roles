@@ -1,9 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../controllers/roles/user.controller');
-//const authMiddleware = require('../middlewares/auth.middleware');
+const authMiddleware = require('../../middlewares/auth.middleware');
+const checkPermissionsMiddleware = require('../../middlewares/checkPermission.middleware');
 
-// Ruta para crear un nuevo usuario
-router.post('/users', userController.registerUser);
+router.post('/create_user', userController.registerUser);
 
+router.get('/allUsers', authMiddleware, userController.getAllUsers);
+
+router.get('/:id', authMiddleware, userController.getUser);
+
+router.put(
+  '/:id',
+  authMiddleware,
+  checkPermissionsMiddleware('modificar'),
+  userController.updateUser
+);
+
+router.delete('/:id', authMiddleware, userController.deleteUser);
 module.exports = router;
