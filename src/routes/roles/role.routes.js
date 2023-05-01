@@ -8,12 +8,13 @@ const rolesController = require('../../controllers/roles/role.controller');
 router.post('/create_role', authMiddleware, rolesController.createRole);
 
 // Listar roles
-router.get('/getallRoles', authMiddleware, rolesController.getRoles);
+router.get('/getall', authMiddleware, rolesController.getRoles);
 
 // Obtener rol por ID
 router.get('/:id', authMiddleware, rolesController.getRoleById);
 
 // Actualizar rol
 router.put('/:id', authMiddleware, rolesController.updateRole);
+router.delete('/:id', authMiddleware, rolesController.deleteRole);
 
 module.exports = router;

@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-01T11:19:57.346Z",
+    "modified": "2023-05-01T21:17:55.778Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"fanor@gmail.com\",\n  \"password\":\"123456\"\n}",
+      "raw": "{\n  \"name\":\"Fanor0\",\n  \"email\":\"fanor@gmail3.com\",\n  \"password\":\"123456\"\n}",
       "form": []
     },
     "tests": []
@@ -39,7 +39,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:21:52.803Z",
-    "modified": "2023-05-01T20:12:48.608Z",
+    "modified": "2023-05-01T21:00:00.328Z",
     "headers": [
       {
         "name": "Authorization",
@@ -49,7 +49,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Encargado\",\n  \"permissionIds\":[\"64501d1b474022ebb7cb46d1\"] \n}",
+      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"644f6f58869e9c6e4a86727e\", \"644f7727918e8a6bfc79ff53\"],\n  \"isActive\": true\n}",
       "form": []
     },
     "tests": []
@@ -63,7 +63,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:22:06.320Z",
-    "modified": "2023-05-01T20:12:11.546Z",
+    "modified": "2023-05-01T20:44:49.396Z",
     "headers": [
       {
         "name": "Authorization",
@@ -73,7 +73,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"administrar_productores_externos\"\n}",
+      "raw": "{\n  \"name\":\"gestionar_roles\"\n}",
       "form": []
     },
     "tests": []
@@ -82,7 +82,7 @@
     "_id": "3a13df25-9062-4c56-9ee2-2d531b8e3294",
     "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
     "containerId": "",
-    "name": "allPermissions",
+    "name": "Active",
     "url": "http://127.0.0.1:5000/permissions/getallPermissions",
     "method": "GET",
     "sortNum": 20000,
@@ -106,7 +106,7 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-01T11:40:17.745Z",
-    "modified": "2023-05-01T11:52:39.344Z",
+    "modified": "2023-05-01T20:58:15.148Z",
     "headers": [
       {
         "name": "Authorization",
@@ -116,9 +116,162 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\r\n  \"name\":\"Administrador\",\r\n  \"permissions\":[\"644f6f58869e9c6e4a86727e\", \"644f7727918e8a6bfc79ff53\"]\r\n}",
+      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"644f6f58869e9c6e4a86727e\", \"644f7727918e8a6bfc79ff53\"]\n}",
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "d87bc58d-6f58-44c5-bdfb-cb4c632b88f8",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Active",
+    "url": "http://127.0.0.1:5000/roles/getall",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-05-01T21:14:13.870Z",
+    "modified": "2023-05-01T21:19:59.661Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "deef39e4-70e9-4829-b7d9-6a49967ceb6d",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Rol",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-01T21:14:44.583Z",
+    "modified": "2023-05-01T21:14:44.583Z",
+    "headers": []
+  },
+  {
+    "_id": "6148d122-f8f1-4d33-8cdf-e89e9f83a625",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "Active",
+    "url": "http://127.0.0.1:5000/users/getall",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-05-01T21:30:21.811Z",
+    "modified": "2023-05-01T21:44:59.955Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5613fcd6-1314-4ab6-bd12-4031cc0cac5a",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "Desactive",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-01T21:31:03.294Z",
+    "modified": "2023-05-01T21:31:03.294Z",
+    "headers": []
+  },
+  {
+    "_id": "7ce9ac51-740b-4b1d-8955-bdd98356bdc9",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "User",
+    "url": "http://127.0.0.1:5000/users/644fa05d3a7ce9b2bfd4d994",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-05-01T21:31:43.498Z",
+    "modified": "2023-05-01T21:47:12.070Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "04f2eafe-8502-40f8-9b80-74f593823ef3",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Desactive",
+    "url": "",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-05-01T21:32:47.851Z",
+    "modified": "2023-05-01T21:32:47.851Z",
+    "headers": []
+  },
+  {
+    "_id": "52677fde-0891-4f12-a432-b19551dd27dd",
+    "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "containerId": "",
+    "name": "Update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-05-01T21:33:26.227Z",
+    "modified": "2023-05-01T21:33:26.227Z",
+    "headers": []
+  },
+  {
+    "_id": "510e49b3-dde9-47c2-96c6-757e09a91525",
+    "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "containerId": "",
+    "name": "Desactive",
+    "url": "",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-05-01T21:34:13.660Z",
+    "modified": "2023-05-01T21:34:13.661Z",
+    "headers": []
+  },
+  {
+    "_id": "74b82aa6-35ef-46c7-9e19-87a79830c40b",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "Activate",
+    "url": "",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-05-01T21:39:22.867Z",
+    "modified": "2023-05-01T21:39:22.867Z",
+    "headers": []
+  },
+  {
+    "_id": "c5ce78bb-184f-4985-9fc1-361743ba2865",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Activate",
+    "url": "",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-05-01T21:39:43.503Z",
+    "modified": "2023-05-01T21:39:43.503Z",
+    "headers": []
+  },
+  {
+    "_id": "f4a35cde-940d-4468-aaa4-78388a5da2da",
+    "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "containerId": "",
+    "name": "Activate",
+    "url": "",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-05-01T21:40:06.347Z",
+    "modified": "2023-05-01T21:40:06.348Z",
+    "headers": []
   }
 ]
