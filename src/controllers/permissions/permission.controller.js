@@ -1,4 +1,4 @@
-const Permission = require('../../models/roles/permission.model');
+const Permission = require('../../models/permission/permission.model');
 const permissionController = {};
 
 permissionController.createPermission = async (req, res, next) => {
@@ -10,7 +10,7 @@ permissionController.createPermission = async (req, res, next) => {
   }
 };
 
-permissionController.getPermissions = async (req, res, next) => {
+permissionController.getAllPermissions = async (req, res, next) => {
   try {
     const permissions = await Permission.find();
     res.status(200).json({ success: true, data: permissions });

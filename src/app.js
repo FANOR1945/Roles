@@ -18,9 +18,9 @@ ExpressApp.use(cors({ origin: '*' }));
 //routes
 //const authRoutes = require('./routes/auth/auth.routes');
 
-const usersRoutes = require('./routes/roles/user.routes');
-const permissionsRoutes = require('./routes/roles/permission.routes');
-const rolesRoutes = require('./routes/roles/role.routes');
+const usersRoutes = require('./routes/user/user.routes');
+const permissionsRoutes = require('./routes/permission/permission.routes');
+const rolesRoutes = require('./routes/role/role.routes');
 
 //const especiesRoutes = require('./routes/service/specie.routes');
 ExpressApp.use('/users', usersRoutes);

@@ -1,7 +1,7 @@
 [
   {
     "_id": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
-    "colName": "Users",
+    "colName": "User",
     "created": "2023-05-01T11:17:14.189Z",
     "sortNum": 20000,
     "folders": []

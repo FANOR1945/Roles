@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Role = require('./role.model');
+const Role = require('../role/role.model');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -16,11 +16,12 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  activo: {
+  isActive: {
     type: Boolean,
     required: true,
     default: true,
   },
+  //role: { type: String },//for create firts user
   role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
 });
 

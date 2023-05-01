@@ -1,4 +1,4 @@
-const Role = require('../../models/roles/role.model');
+const Role = require('../../models/role/role.model');
 const roleController = {};
 roleController.createRole = async (req, res, next) => {
   try {
@@ -9,7 +9,7 @@ roleController.createRole = async (req, res, next) => {
   }
 };
 
-roleController.getRoles = async (req, res, next) => {
+roleController.getAllRoles = async (req, res, next) => {
   try {
     const roles = await Role.find();
     res.status(200).json({ success: true, data: roles });
@@ -18,7 +18,7 @@ roleController.getRoles = async (req, res, next) => {
   }
 };
 
-roleController.getRoleById = async (req, res, next) => {
+roleController.getRole = async (req, res, next) => {
   try {
     const role = await Role.findById(req.params.id);
     if (!role) {
