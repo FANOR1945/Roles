@@ -1,0 +1,124 @@
+[
+  {
+    "_id": "cf795d00-694f-4899-9a51-6a8368369eed",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "Register",
+    "url": "http://127.0.0.1:5000/users/create_user",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-05-01T11:17:19.743Z",
+    "modified": "2023-05-01T11:19:57.346Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"fanor@gmail.com\",\n  \"password\":\"123456\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f7600aaa-b185-4c1a-8781-cfc72d56db07",
+    "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "containerId": "",
+    "name": "Update",
+    "url": "",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-01T11:17:27.457Z",
+    "modified": "2023-05-01T11:17:27.457Z",
+    "headers": []
+  },
+  {
+    "_id": "606a2e22-e6e8-46c3-a034-13c15ddccdbd",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Register",
+    "url": "http://127.0.0.1:5000/roles/create_role",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-05-01T11:21:52.803Z",
+    "modified": "2023-05-01T20:12:48.608Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"Encargado\",\n  \"permissionIds\":[\"64501d1b474022ebb7cb46d1\"] \n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ae9ef44f-b46b-4ebb-a9fb-51d0095ea038",
+    "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "containerId": "",
+    "name": "Register",
+    "url": "http://127.0.0.1:5000/permissions/create_permission",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2023-05-01T11:22:06.320Z",
+    "modified": "2023-05-01T20:12:11.546Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"administrar_productores_externos\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3a13df25-9062-4c56-9ee2-2d531b8e3294",
+    "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "containerId": "",
+    "name": "allPermissions",
+    "url": "http://127.0.0.1:5000/permissions/getallPermissions",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-01T11:24:27.737Z",
+    "modified": "2023-05-01T11:25:12.824Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "82cbc715-17e7-4091-8958-b24175249ed1",
+    "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "containerId": "",
+    "name": "Update",
+    "url": "http://127.0.0.1:5000/roles/644fa51071ed744855acc7ab",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-01T11:40:17.745Z",
+    "modified": "2023-05-01T11:52:39.344Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\r\n  \"name\":\"Administrador\",\r\n  \"permissions\":[\"644f6f58869e9c6e4a86727e\", \"644f7727918e8a6bfc79ff53\"]\r\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

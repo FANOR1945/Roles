@@ -7,7 +7,7 @@ const RoleSchema = new Schema({
     required: true,
     unique: true,
   },
-  permissions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Permission' }],
+  permissionIds: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Permission' }],
   isActive: {
     type: Boolean,
     default: true,

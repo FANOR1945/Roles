@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
+    "colName": "Users",
+    "created": "2023-05-01T11:17:14.189Z",
+    "sortNum": 20000,
+    "folders": []
+  },
+  {
+    "_id": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
+    "colName": "Roles",
+    "created": "2023-05-01T11:21:47.427Z",
+    "sortNum": 30000,
+    "folders": []
+  },
+  {
+    "_id": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
+    "colName": "Permissions",
+    "created": "2023-05-01T11:22:00.841Z",
+    "sortNum": 40000,
+    "folders": []
+  }
+]

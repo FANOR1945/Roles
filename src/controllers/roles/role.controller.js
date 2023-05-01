@@ -1,23 +1,25 @@
 const Role = require('../../models/roles/role.model');
+const Permission = require('../../models/roles/permission.model');
+
 const rolesController = {};
+
 // Crear un nuevo rol
-rolesController.createRole = async (req, res) => {
-  const { name, permissions } = req.body;
+rolesController.createRole = async (req, res, next) => {
   try {
-    // Verificar si el rol ya existe
-    const existingRole = await Role.findOne({ name });
-    if (existingRole) {
-      return res.status(400).json({ msg: 'El rol ya existe' });
-    }
-    // Crear nuevo rol
-    const role = new Role({ name, permissions });
+    const { name, permissionIds } = req.body;
+    const role = await Role.create({ name });
+
+    // Asignar permisos al rol
+    const permissions = await Permission.find({ _id: { $in: permissionIds } });
+    role.permissions = permissions;
+
     await role.save();
-    res.status(201).json(role);
+    res.status(201).json({ success: true, data: role });
   } catch (error) {
-    console.log(error);
-    res.status(500).send('Hubo un error');
+    next(error);
   }
 };
+
 // Obtener todos los roles
 rolesController.getRoles = async (req, res) => {
   try {
@@ -46,11 +48,10 @@ rolesController.getRoleById = async (req, res) => {
     res.status(500).send('Hubo un error');
   }
 };
-
 // Actualizar un rol existente
 rolesController.updateRole = async (req, res) => {
   const { id } = req.params;
-  const { name, permissions } = req.body;
+  const { name, permissionIds } = req.body;
   try {
     let role = await Role.findById(id);
     if (!role) {
@@ -67,8 +68,8 @@ rolesController.updateRole = async (req, res) => {
       role.name = name;
     }
     // Actualizar permisos
-    if (permissions) {
-      role.permissions = permissions;
+    if (permissionIds) {
+      role.permissions = permissionIds;
     }
     await role.save();
     res.status(200).json(role);
@@ -80,6 +81,4 @@ rolesController.updateRole = async (req, res) => {
     res.status(500).send('Hubo un error');
   }
 };
-
-// Eliminar un rol existente
 module.exports = rolesController;
