@@ -15,6 +15,6 @@ router.get('/:id', authMiddleware, rolesController.getRole);
 
 // Actualizar rol
 router.put('/:id', authMiddleware, rolesController.updateRole);
-router.delete('/:id', authMiddleware, rolesController.deleteRole);
+
 
 module.exports = router;

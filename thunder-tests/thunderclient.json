@@ -8,12 +8,17 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-01T23:22:32.226Z",
-    "headers": [],
+    "modified": "2023-05-03T06:07:33.020Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"fanoro@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":\"true\"\n}",
+      "raw": "{\n  \"name\":\"Joselo\",\n  \"email\":\"joselo@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":\"true\",\n  \"role\":\"6450d96b021e3eb82c7a1dd3\"\n  \n}",
       "form": []
     },
     "tests": []
@@ -51,7 +56,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:21:52.803Z",
-    "modified": "2023-05-01T23:38:33.059Z",
+    "modified": "2023-05-03T06:47:49.993Z",
     "headers": [
       {
         "name": "Authorization",
@@ -61,7 +66,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"64504d0cdc864e2d908fd35b\", \"64504d1b3518fc406703301c\"],\n  \"isActive\": true\n}",
+      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"64504d0cdc864e2d908fd35b\", \"64504d1b3518fc406703301c\"],\n  \"isActive\": \"true\"\n}",
       "form": []
     },
     "tests": []
@@ -75,7 +80,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:22:06.320Z",
-    "modified": "2023-05-01T23:36:59.258Z",
+    "modified": "2023-05-03T05:36:08.437Z",
     "headers": [
       {
         "name": "Authorization",
@@ -85,7 +90,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"gestionar_roles\"\n}",
+      "raw": "{\n  \"name\": \"gestion_usuarios\",\n  \"alias\": \"Gestión de Usuarios\",\n  \"isActive\": true\n}",
       "form": []
     },
     "tests": []
@@ -114,11 +119,11 @@
     "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
     "containerId": "",
     "name": "updateRole",
-    "url": "http://127.0.0.1:5000/roles/644fa51071ed744855acc7ab",
+    "url": "http://127.0.0.1:5000/roles/6450d96b021e3eb82c7a1dd3",
     "method": "PUT",
     "sortNum": 20000,
     "created": "2023-05-01T11:40:17.745Z",
-    "modified": "2023-05-01T23:30:47.831Z",
+    "modified": "2023-05-03T06:11:57.673Z",
     "headers": [
       {
         "name": "Authorization",
@@ -128,7 +133,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"644f6f58869e9c6e4a86727e\", \"644f7727918e8a6bfc79ff53\"]\n}",
+      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"6451f2c8c526598630b2a60a\", \"6450d7387fe06c448080e170\"],\n  \"isActive\":true\n}",
       "form": []
     },
     "tests": []
@@ -207,11 +212,11 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "getUser",
-    "url": "http://127.0.0.1:5000/users/645049b8731b24e0443dbb00",
+    "url": "http://127.0.0.1:5000/users/6450a90246d0c92e1a0daf06",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-01T21:31:43.498Z",
-    "modified": "2023-05-01T23:44:30.925Z",
+    "modified": "2023-05-02T22:21:48.969Z",
     "headers": [
       {
         "name": "Authorization",
@@ -226,13 +231,23 @@
     "colId": "c10a5d9e-1b00-4326-a503-a0cbccb342a7",
     "containerId": "",
     "name": "updatePermission",
-    "url": "",
+    "url": "http://127.0.0.1:5000/permissions/6451f13622759da9bab842eb",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2023-05-01T21:33:26.227Z",
-    "modified": "2023-05-01T23:32:09.737Z",
-    "headers": [],
+    "modified": "2023-05-03T05:41:18.981Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+      }
+    ],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"gestion_productores_externos\",\n  \"alias\": \"Gestión de Productores Externos\",\n  \"isActive\": true\n}",
+      "form": []
+    },
     "tests": []
   },
   {

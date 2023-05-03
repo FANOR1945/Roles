@@ -48,17 +48,5 @@ roleController.updateRole = async (req, res, next) => {
   }
 };
 
-roleController.deleteRole = async (req, res, next) => {
-  try {
-    const role = await Role.findByIdAndDelete(req.params.id);
-    if (!role) {
-      return res
-        .status(404)
-        .json({ success: false, message: 'Role not found' });
-    }
-    res.status(204).json({ success: true, data: null });
-  } catch (error) {
-    next(error);
-  }
-};
+
 module.exports = roleController;
