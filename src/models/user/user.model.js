@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const Role = require('../role/role.model');
-const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -21,8 +19,16 @@ const UserSchema = new Schema({
     required: true,
     default: true,
   },
-  //role: { type: String },//for create firts user
-  role: { type: mongoose.Schema.Types.ObjectId, ref: 'Role' },
+  role: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Role',
+    required: true,
+  }],
+  permissionIds: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Permission',
+    required: true,
+  }],
 });
 
 module.exports = mongoose.model('User', UserSchema);
