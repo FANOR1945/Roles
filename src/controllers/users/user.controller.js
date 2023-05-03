@@ -12,12 +12,10 @@ userController.createUser = async (req, res, next) => {
   try {
     const { name, email, password, role, isActive } = req.body;
 
-    // Obtener los roles correspondientes
     const rolesArray = await Role.find({
       _id: { $in: role },
     });
 
-    // Obtener los permisos correspondientes a los roles
     const permissionsArray = [];
     for (let role of rolesArray) {
       const permissionIds = await Permission.find({
@@ -26,10 +24,8 @@ userController.createUser = async (req, res, next) => {
       permissionsArray.push(...permissionIds);
     }
 
-    // Encriptar la contraseña
     const hashedPassword = await bcrypt.hash(password, 8);
 
-    // Crear el nuevo usuario con los roles y permisos correspondientes
     const user = new User({
       name,
       email,
@@ -69,12 +65,13 @@ userController.createUser = async (req, res, next) => {
 
 userController.getAllUsers = async (req, res, next) => {
   try {
-    // Buscar todos los usuarios en la base de datos
     const users = await User.find().populate('role').populate('permissionIds');
+
+    const filteredUsers = users.filter((user) => user.isActive);
 
     res.status(200).json({
       message: 'Usuarios encontrados con éxito',
-      users: users.map((user) => {
+      users: filteredUsers.map((user) => {
         return {
           _id: user._id,
           name: user.name,
@@ -101,10 +98,8 @@ userController.getUser = async (req, res, next) => {
       .populate('role', 'name permissionIds')
       .populate('permissionIds', 'name');
 
-    if (!user) {
-      const error = new Error('Usuario no encontrado');
-      error.statusCode = 404;
-      throw error;
+    if (!user || !user.isActive) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
     res.status(200).json({
@@ -136,12 +131,10 @@ userController.updateUser = async (req, res, next) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    // Obtener los roles correspondientes
     const rolesArray = await Role.find({
       _id: { $in: role },
     });
 
-    // Obtener los permisos correspondientes a los roles
     const permissionsArray = [];
     for (let role of rolesArray) {
       const permissionIds = await Permission.find({
@@ -150,13 +143,11 @@ userController.updateUser = async (req, res, next) => {
       permissionsArray.push(...permissionIds);
     }
 
-    // Actualizar el usuario con los datos proporcionados
     user.name = name || user.name;
     user.email = email || user.email;
     user.isActive = isActive === undefined ? user.isActive : isActive;
 
     if (password) {
-      // Encriptar la contraseña
       const hashedPassword = await bcrypt.hash(password, 8);
       user.password = hashedPassword;
     }
@@ -203,13 +194,12 @@ userController.deactivateUser = async (req, res) => {
     user.isActive = false;
     await user.save();
 
-    res
-      .status(200)
-      .json({ message: 'Usuario desactivado con exito', user: user });
+    res.status(200).json({ message: 'Usuario desactivado con éxito' });
   } catch (error) {
     res.status(500).json({ message: 'Error desactivando usuario', error });
   }
 };
+
 userController.activateUser = async (req, res) => {
   try {
     const { id } = req.params;

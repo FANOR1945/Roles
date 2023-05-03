@@ -200,11 +200,11 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "activateUser",
-    "url": "http://127.0.0.1:5000/users/645049b8731b24e0443dbb00/activateu",
+    "url": "http://127.0.0.1:5000/users//645049b8731b24e0443dbb00/activateu",
     "method": "PATCH",
     "sortNum": 60000,
     "created": "2023-05-01T21:31:03.294Z",
-    "modified": "2023-05-01T23:48:39.353Z",
+    "modified": "2023-05-03T21:51:21.093Z",
     "headers": [
       {
         "name": "Authorization",
@@ -223,7 +223,7 @@
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-01T21:31:43.498Z",
-    "modified": "2023-05-03T19:04:56.692Z",
+    "modified": "2023-05-03T21:50:59.254Z",
     "headers": [
       {
         "name": "Authorization",
