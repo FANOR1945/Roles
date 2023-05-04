@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-
+const sendAuthError = require('../utils/sendAuthError');
 const authMiddleware = (req, res, next) => {
   const token = req.headers['authorization'];
 
   if (!token) {
-    return res.status(401).json({ message: 'No estas Autorizado' });
+    return sendAuthError(res);
   }
 
   try {
@@ -13,8 +13,10 @@ const authMiddleware = (req, res, next) => {
     req.userId = decodedToken.userId; // Guarda el ID del usuario en la solicitud
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'No estas Autorizado' });
+    return sendAuthError(res);
   }
 };
+
+module.exports = authMiddleware;
 
 module.exports = authMiddleware;

@@ -1,30 +1,32 @@
-const Role = require('../models/role/role.model');
+const User = require('../models/user/user.model');
+const sendAuthError = require('../utils/sendAuthError');
 
-const checkPermissionsMiddleware = (permissionAlias) => {
+const checkPermissionsMiddleware = (permissionIds) => {
   return async (req, res, next) => {
-    try {
-      const user = req.user;
-      if (!user || !user.role) {
-        return res.status(403).json({ message: "Access denied" });
-      }
-      const role = await Role.findById(user.role);
-      if (
-        !role ||
-        !role.permissions ||
-        !role.permissions.some(
-          (permission) => permission.alias === permissionAlias
-        )
-      ) {
-        return res.status(403).json({ message: "Access denied" });
-      }
-      next();
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Server error" });
+    const userId = req.userId;
+    const user = await User.findById(userId).populate('roleId');
+    if (!user) {
+      return sendAuthError(res);
     }
+    const role = user.roleId;
+    if (!role || !role.isActive) {
+      return res
+        .status(403)
+        .json({ message: 'No tienes permisos para acceder a esta ruta' });
+    }
+    const permissions = role.permissionIds.map((permission) =>
+      permission._id.toString()
+    );
+    const hasPermission = permissionIds.some((permissionId) =>
+      permissions.includes(permissionId)
+    );
+    if (!hasPermission) {
+      return res
+        .status(403)
+        .json({ message: 'No tienes permisos para acceder a esta ruta' });
+    }
+    next();
   };
 };
-
-
 
 module.exports = checkPermissionsMiddleware;

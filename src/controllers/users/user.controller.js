@@ -3,69 +3,66 @@ const Role = require('../../models/role/role.model');
 const Permission = require('../../models/permission/permission.model');
 
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 const userController = {};
 const secretKey = process.env.JWT_SECRET;
 
-userController.createUser = async (req, res, next) => {
+userController.createUser = async (req, res) => {
   try {
-    const { name, email, password, role, isActive } = req.body;
+    const { name, email, password, isActive, role } = req.body;
 
-    const rolesArray = await Role.find({
-      _id: { $in: role },
-    });
+    // Encriptar la contraseña
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    const permissionsArray = [];
-    for (let role of rolesArray) {
-      const permissionIds = await Permission.find({
-        _id: { $in: role.permissionIds },
-      });
-      permissionsArray.push(...permissionIds);
-    }
+    // Obtener el rol que se está asignando al usuario
+    const selectedRole = await Role.findById(role).populate('permissions');
 
-    const hashedPassword = await bcrypt.hash(password, 8);
-
-    const user = new User({
+    // Crear usuario con rol correspondiente y agregar los permisos del rol
+    const user = await User.create({
       name,
       email,
       password: hashedPassword,
-      isActive: isActive || true,
-      role: rolesArray.map((role) => role._id),
-      permissionIds: permissionsArray.map((permission) => permission._id),
+      isActive,
+      role: [selectedRole._id], // Agregar el ID del rol al que pertenece el usuario
     });
 
-    await user.save();
+    user.role[0].permissions = selectedRole.permissions.map(
+      (permission) => permission._id
+    ); // Agregar los permisos del rol al usuario
 
+    await user.save(); // Guardar el usuario con los permisos
+
+    // Mostrar el usuario con su rol y permisos correspondientes
+    const userWithRole = await User.findById(user._id)
+      .populate({
+        path: 'role',
+        populate: {
+          path: 'permissions',
+          select: '_id alias',
+        },
+      })
+      .select('-password');
+
+    // Generar token JWT con el id del usuario
     const token = jwt.sign({ userId: user._id }, secretKey);
 
-    res.status(201).json({
-      message: 'Usuario registrado con éxito',
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        isActive: user.isActive,
-        role: rolesArray.map((role) => {
-          return {
-            _id: role._id,
-            name: role.name,
-            permissionIds: role.permissionIds.map(
-              (permission) => permission._id
-            ),
-          };
-        }),
-      },
-      token: token,
-    });
+    return res
+      .status(201)
+      .json({ message: 'Usuario creado con éxito', user: userWithRole, token });
   } catch (error) {
-    next(error);
+    console.error(error);
+    return res.status(500).json({ message: 'Error al crear usuario' });
   }
 };
 
 userController.getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find().populate('role').populate('permissionIds');
+    const users = await User.find().populate('role').populate({
+      path: 'permissions',
+      select: 'name',
+    });
 
     const filteredUsers = users.filter((user) => user.isActive);
 
@@ -81,7 +78,7 @@ userController.getAllUsers = async (req, res, next) => {
             return {
               _id: role._id,
               name: role.name,
-              permissionIds: role.permissionIds,
+              permissions: role.permissionIds,
             };
           }),
         };
@@ -111,7 +108,7 @@ userController.getUser = async (req, res, next) => {
         return {
           _id: role._id,
           name: role.name,
-          permissionIds: role.permissionIds.map((permission) => permission._id),
+          permissions: role.permissionIds.map((permission) => permission._id),
         };
       }),
     });
