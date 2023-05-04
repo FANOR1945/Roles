@@ -14,7 +14,7 @@ roleController.createRole = async (req, res) => {
     // Mostrar el rol con sus permisos correspondientes
     const roleWithPermissions = await Role.findById(role._id).populate({
       path: 'permissions',
-      select: '_id alias',
+      select: '_id name alias',
     });
 
     return res

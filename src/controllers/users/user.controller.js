@@ -40,7 +40,7 @@ userController.createUser = async (req, res) => {
         path: 'role',
         populate: {
           path: 'permissions',
-          select: '_id alias',
+          select: '_id name alias',
         },
       })
       .select('-password');

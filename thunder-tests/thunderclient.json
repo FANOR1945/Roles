@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-04T08:15:18.236Z",
+    "modified": "2023-05-04T08:56:52.363Z",
     "headers": [
       {
         "name": "Authorization",
@@ -18,7 +18,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"ssandra756sdfdsfsd8d@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"645366348904f1a634f6bed3\"]\n  \n}",
+      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"fansdsoros@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"6453721d14077af62490b75f\"]\n  \n}",
       "form": []
     },
     "tests": []
@@ -56,7 +56,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:21:52.803Z",
-    "modified": "2023-05-04T02:55:58.922Z",
+    "modified": "2023-05-04T08:51:42.440Z",
     "headers": [
       {
         "name": "Authorization",
@@ -66,7 +66,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissions\":[\"64531dfe921f63fa1fec5e8d\", \"64531e4d921f63fa1fec5e90\"],\n  \"isActive\": \"true\"\n}",
+      "raw": "{\n  \"name\":\"Encargado\",\n  \"permissions\":[\"64536ddbb6efed8bf335fa40\", \"64536d09d57f7a14dd165bfa\"],\n  \"isActive\": \"true\"\n}",
       "form": []
     },
     "tests": []
@@ -80,7 +80,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:22:06.320Z",
-    "modified": "2023-05-04T02:54:06.168Z",
+    "modified": "2023-05-04T08:33:31.264Z",
     "headers": [
       {
         "name": "Authorization",
@@ -90,7 +90,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"gestion_roles\",\n  \"alias\": \"Gestión de Roles\",\n  \"isActive\": true\n}",
+      "raw": "{\n  \"name\": \"gestion_usuarios\",\n  \"alias\": \"Gestión de Usuarios\",\n  \"isActive\": true\n}",
       "form": []
     },
     "tests": []
