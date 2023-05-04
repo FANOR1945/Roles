@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-04T09:13:34.157Z",
+    "modified": "2023-05-04T21:23:51.460Z",
     "headers": [
       {
         "name": "Authorization",
@@ -18,7 +18,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Fanor\",\n  \"email\":\"fansdsor5666os@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"6453721d14077af62490b75f\"]\n  \n}",
+      "raw": "{\n  \"name\":\"Ditmar\",\n  \"email\":\"ditmar@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"6454132edfe8cad184c8328c\"]\n  \n}",
       "form": []
     },
     "tests": []
@@ -56,7 +56,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:21:52.803Z",
-    "modified": "2023-05-04T08:51:42.440Z",
+    "modified": "2023-05-04T20:18:55.005Z",
     "headers": [
       {
         "name": "Authorization",
@@ -66,7 +66,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Encargado\",\n  \"permissions\":[\"64536ddbb6efed8bf335fa40\", \"64536d09d57f7a14dd165bfa\"],\n  \"isActive\": \"true\"\n}",
+      "raw": "{\n  \"name\":\"Adiministrador\",\n  \"permissions\":[\"6454122e9f373598cf7f7407\", \"645412509f373598cf7f7409\"],\n  \"isActive\": \"true\"\n}",
       "form": []
     },
     "tests": []
@@ -80,7 +80,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:22:06.320Z",
-    "modified": "2023-05-04T08:33:31.264Z",
+    "modified": "2023-05-04T21:29:17.468Z",
     "headers": [
       {
         "name": "Authorization",
@@ -90,7 +90,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"gestion_usuarios\",\n  \"alias\": \"Gestión de Usuarios\",\n  \"isActive\": true\n}",
+      "raw": "{\n  \"name\": \"gestion_productores_semilleristas\",\n  \"alias\": \"Gestión de Productores Semilleristas\",\n  \"isActive\": true\n}",
       "form": []
     },
     "tests": []
@@ -119,11 +119,11 @@
     "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
     "containerId": "",
     "name": "updateRole",
-    "url": "http://127.0.0.1:5000/roles/6450d96b021e3eb82c7a1dd3",
-    "method": "PUT",
+    "url": "http://127.0.0.1:5000/roles/64542b29a70b9f840fba3981",
+    "method": "PATCH",
     "sortNum": 20000,
     "created": "2023-05-01T11:40:17.745Z",
-    "modified": "2023-05-03T08:38:45.687Z",
+    "modified": "2023-05-04T22:01:34.496Z",
     "headers": [
       {
         "name": "Authorization",
@@ -133,7 +133,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissionIds\":[\"6451f2c8c526598630b2a60a\", \"6450d7387fe06c448080e170\"],\n  \"isActive\":true\n}",
+      "raw": "{\n\n  \"permissions\":[\"645423ad016710adfa7bddfb\"]\n\n}",
       "form": []
     },
     "tests": []
@@ -162,11 +162,11 @@
     "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
     "containerId": "",
     "name": "getRole",
-    "url": "http://127.0.0.1:5000/roles/64522349334aed69fbc72657",
+    "url": "http://127.0.0.1:5000/roles/64542b29a70b9f840fba3981",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-05-01T21:14:44.583Z",
-    "modified": "2023-05-03T09:04:31.083Z",
+    "modified": "2023-05-04T22:05:10.282Z",
     "headers": [
       {
         "name": "Authorization",
