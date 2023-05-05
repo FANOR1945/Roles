@@ -4,14 +4,12 @@ roleController.createRole = async (req, res) => {
   try {
     const { name, isActive, permissions } = req.body;
 
-    // Crear rol con permisos correspondientes
     const role = await Role.create({
       name,
       isActive,
       permissions,
     });
 
-    // Mostrar el rol con sus permisos correspondientes
     const roleWithPermissions = await Role.findById(role._id).populate({
       path: 'permissions',
       select: '_id alias',
