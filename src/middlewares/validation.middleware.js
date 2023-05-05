@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const {
   userValidations,
+  credentialsValidations,
   createRoleValidations,
   updateRoleValidations,
 } = require('./validations');
@@ -18,6 +19,7 @@ const validationMiddleware = (validations) => {
   };
 };
 const userValidationMiddleware = validationMiddleware(userValidations);
+const credentialsValidationMiddleware = validationMiddleware(credentialsValidations);
 
 const createRoleValidationMiddleware = validationMiddleware(
   createRoleValidations
@@ -29,6 +31,7 @@ const updateRoleValidationsMiddleware = validationMiddleware(
 
 module.exports = {
   userValidationMiddleware,
+  credentialsValidationMiddleware,
   createRoleValidationMiddleware,
   updateRoleValidationsMiddleware,
 };

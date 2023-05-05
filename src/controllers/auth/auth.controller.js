@@ -5,11 +5,11 @@ const {
 const bcrypt = require('bcrypt');
 const User = require('../../models/user/user.model');
 const {
-  userValidationMiddleware,
+  credentialsValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
 const authController = {};
 authController.login = async (req, res) => {
-  await userValidationMiddleware(req, res, async () => {
+  await credentialsValidationMiddleware(req, res, async () => {
     const { email, password } = req.body;
 
     try {

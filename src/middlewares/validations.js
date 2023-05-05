@@ -18,7 +18,17 @@ const userValidations = [
   body('role').notEmpty().withMessage('El rol es obligatorio'),
 ];
 
-const credentialsValidations = [...body('email'), body('password')];
+const credentialsValidations = [
+  body('email')
+    .notEmpty()
+    .withMessage('El email es obligatorio')
+    .isEmail()
+    .withMessage('Correo electrónico no válidol')
+    .matches(/@gmail\.com$/)
+    .withMessage(' El correo electrónico debe ser una cuenta de Gmail '),
+  body('password').notEmpty().withMessage('La contraseña es obligatoria'),
+];
+
 const createRoleValidations = [
   body('name').notEmpty().withMessage('El nombre es obligatorio'),
   body('permissions')
@@ -42,6 +52,7 @@ const updateRoleValidations = [
 
 module.exports = {
   userValidations,
+  credentialsValidations,
   updateRoleValidations,
   createRoleValidations,
 };
