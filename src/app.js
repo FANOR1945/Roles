@@ -16,7 +16,7 @@ ExpressApp.use(cookieParser());
 ExpressApp.use(cors({ origin: '*' }));
 
 //routes
-//const authRoutes = require('./routes/auth/auth.routes');
+const authRoutes = require('./routes/auth/auth.routes');
 
 const usersRoutes = require('./routes/user/user.routes');
 const permissionsRoutes = require('./routes/permission/permission.routes');
@@ -26,9 +26,9 @@ const rolesRoutes = require('./routes/role/role.routes');
 ExpressApp.use('/users', usersRoutes);
 ExpressApp.use('/permissions', permissionsRoutes);
 ExpressApp.use('/roles', rolesRoutes);
-/*ExpressApp.use('/auth', authRoutes);
+ExpressApp.use('/auth', authRoutes);
 
-ExpressApp.use('/species', especiesRoutes);*/
+//ExpressApp.use('/species', especiesRoutes);
 ExpressApp.listen(Port, LOCALHOST, () => {
   console.log(`Server is running on http://${LOCALHOST}:${Port}`);
 });

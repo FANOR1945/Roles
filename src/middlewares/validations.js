@@ -18,6 +18,7 @@ const userValidations = [
   body('role').notEmpty().withMessage('El rol es obligatorio'),
 ];
 
+const credentialsValidations = [...body('email'), body('password')];
 const createRoleValidations = [
   body('name').notEmpty().withMessage('El nombre es obligatorio'),
   body('permissions')

@@ -1,14 +1,12 @@
 const User = require('../../models/user/user.model');
 const Role = require('../../models/role/role.model');
 const Permission = require('../../models/permission/permission.model');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const {
   userValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
 
 const userController = {};
-const secretKey = process.env.JWT_SECRET;
 
 userController.createUser = async (req, res) => {
   try {
@@ -38,12 +36,9 @@ userController.createUser = async (req, res) => {
         })
         .select('-password');
 
-      const token = jwt.sign({ userId: user._id }, secretKey);
-
       return res.status(201).json({
         message: 'Usuario creado con éxito',
         user: userWithRole,
-        token,
       });
     });
   } catch (error) {
