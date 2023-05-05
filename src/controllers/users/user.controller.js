@@ -48,6 +48,11 @@ userController.createUser = async (req, res) => {
     });
   } catch (error) {
     console.error(error);
+    if (error.name === 'MongoServerError' && error.code === 11000) {
+      return res
+        .status(400)
+        .json({ message: 'El correo electrónico ya está registrado' });
+    }
     return res.status(500).json({ message: 'Error al crear usuario' });
   }
 };

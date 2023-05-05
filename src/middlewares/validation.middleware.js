@@ -19,8 +19,9 @@ const validationMiddleware = (validations) => {
 };
 const userValidationMiddleware = validationMiddleware(userValidations);
 
-const createRoleValidationMiddleware = createRoleValidations;
-validationMiddleware(createRoleValidations);
+const createRoleValidationMiddleware = validationMiddleware(
+  createRoleValidations
+);
 
 const updateRoleValidationsMiddleware = validationMiddleware(
   updateRoleValidations
