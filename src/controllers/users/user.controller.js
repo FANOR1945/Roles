@@ -12,14 +12,11 @@ userController.createUser = async (req, res) => {
   try {
     const { name, email, password, isActive, role } = req.body;
 
-    // Encriptar la contraseña
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Obtener el objeto Role
     const roleObject = await Role.findById(role);
 
-    // Crear usuario con rol correspondiente
     const user = await User.create({
       name,
       email,
@@ -28,7 +25,6 @@ userController.createUser = async (req, res) => {
       role: [roleObject],
     });
 
-    // Mostrar el usuario con su rol y permisos correspondientes
     const userWithRole = await User.findById(user._id)
       .populate({
         path: 'role',
@@ -39,7 +35,6 @@ userController.createUser = async (req, res) => {
       })
       .select('-password');
 
-    // Generar token JWT con el id del usuario
     const token = jwt.sign({ userId: user._id }, secretKey);
 
     return res
