@@ -8,17 +8,17 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-04T21:23:51.460Z",
+    "modified": "2023-05-05T00:13:11.003Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Ditmar\",\n  \"email\":\"ditmar@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"6454132edfe8cad184c8328c\"]\n  \n}",
+      "raw": "{\n  \"name\":\"Limber\",\n  \"email\":\"limber@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
       "form": []
     },
     "tests": []
@@ -28,21 +28,21 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "updateUser",
-    "url": "http://127.0.0.1:5000/users/64520e55f5536fe8e245857e",
+    "url": "http://127.0.0.1:5000/users/6454456a5ce03a5378184883",
     "method": "PUT",
     "sortNum": 20000,
     "created": "2023-05-01T11:17:27.457Z",
-    "modified": "2023-05-03T20:39:45.933Z",
+    "modified": "2023-05-05T00:05:56.009Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Joselo\",\n  \"email\":\"joselo@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":\"64521dc2728c885b004534e3\"\n}",
+      "raw": "{\n  \"name\":\"Ditmar\",\n  \"email\":\"dirmar@gmail.com\",\n  \"password\":\"123456\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
       "form": []
     },
     "tests": []
@@ -56,17 +56,17 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:21:52.803Z",
-    "modified": "2023-05-04T20:18:55.005Z",
+    "modified": "2023-05-04T23:47:48.480Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0M2U3ZWUxNGIzMzI1YzQzYTZhYzUiLCJpYXQiOjE2ODMyNDI2MjN9.lqyOo7yH6SW-weJSL-IueXyp6ybLj4G5VZEAdNknWpw"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Adiministrador\",\n  \"permissions\":[\"6454122e9f373598cf7f7407\", \"645412509f373598cf7f7409\"],\n  \"isActive\": \"true\"\n}",
+      "raw": "{\n  \"name\":\"Administrador\",\n  \"permissions\":[\"6454363acf29808d4a49862f\", \"6454364acf29808d4a498636\"],\n  \"isActive\": \"true\"\n}",
       "form": []
     },
     "tests": []
@@ -80,11 +80,11 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:22:06.320Z",
-    "modified": "2023-05-04T21:29:17.468Z",
+    "modified": "2023-05-04T22:55:03.463Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
@@ -104,11 +104,11 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-05-01T11:24:27.737Z",
-    "modified": "2023-05-01T23:37:16.082Z",
+    "modified": "2023-05-04T22:51:10.233Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
@@ -119,21 +119,21 @@
     "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
     "containerId": "",
     "name": "updateRole",
-    "url": "http://127.0.0.1:5000/roles/64542b29a70b9f840fba3981",
+    "url": "http://127.0.0.1:5000/roles/645437964e6808b675191892",
     "method": "PATCH",
     "sortNum": 20000,
     "created": "2023-05-01T11:40:17.745Z",
-    "modified": "2023-05-04T22:01:34.496Z",
+    "modified": "2023-05-04T22:57:35.640Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDRmYTA1ZDNhN2NlOWIyYmZkNGQ5OTQiLCJpYXQiOjE2ODI5Mzk5OTd9.TsAqJIqJCQU6B3-0_LQB2b0te5cMoT3A0KbQmnCpS1w"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n\n  \"permissions\":[\"645423ad016710adfa7bddfb\"]\n\n}",
+      "raw": "{\n\n  \"permissions\":[\"645437c74e6808b675191894\"]\n\n}",
       "form": []
     },
     "tests": []
@@ -185,11 +185,11 @@
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-05-01T21:30:21.811Z",
-    "modified": "2023-05-01T23:17:05.136Z",
+    "modified": "2023-05-04T23:38:46.222Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0NDFlNmNmNzUxZGM4YzcxNWZmNDIiLCJpYXQiOjE2ODMyNDM0OTV9.KT0UWB6O8zlnCWf204RRqYR7Tu-0VWylnUHnRyBwucc"
       }
     ],
     "params": [],
@@ -200,15 +200,15 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "activateUser",
-    "url": "http://127.0.0.1:5000/users//645049b8731b24e0443dbb00/activateu",
+    "url": "http://127.0.0.1:5000/users/6454355edbb427c7811c541d/activateu",
     "method": "PATCH",
     "sortNum": 60000,
     "created": "2023-05-01T21:31:03.294Z",
-    "modified": "2023-05-03T21:51:21.093Z",
+    "modified": "2023-05-05T00:11:59.576Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
@@ -219,15 +219,15 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "getUser",
-    "url": "http://127.0.0.1:5000/users/645049b8731b24e0443dbb00",
+    "url": "http://127.0.0.1:5000/users/6454355edbb427c7811c541d",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-01T21:31:43.498Z",
-    "modified": "2023-05-03T21:50:59.254Z",
+    "modified": "2023-05-05T00:06:50.604Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
@@ -280,11 +280,11 @@
     "method": "GET",
     "sortNum": 80000,
     "created": "2023-05-01T21:39:43.503Z",
-    "modified": "2023-05-01T23:41:01.861Z",
+    "modified": "2023-05-04T22:50:43.388Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],
@@ -307,15 +307,15 @@
     "colId": "bcbb2f25-7670-4fa7-ac5c-0424ea5f6572",
     "containerId": "",
     "name": "desactivateUser",
-    "url": "http://127.0.0.1:5000/users/645049b8731b24e0443dbb00",
+    "url": "http://127.0.0.1:5000/users/6454355edbb427c7811c541d",
     "method": "DELETE",
     "sortNum": 80000,
     "created": "2023-05-01T23:27:28.918Z",
-    "modified": "2023-05-01T23:47:18.966Z",
+    "modified": "2023-05-05T00:11:26.017Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDUwNDdjNjJiMmI0M2EzNDkyMjQ1YjEiLCJpYXQiOjE2ODI5ODI4NTR9.buh1iA5dV3Skr_qHXvSFQsvpFNpB1dLPMmnVLrLZ1Bs"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODMyNDAyODZ9.PZDAWs4z8xZ5pkvdLqm1a6uj-v6QZNYcckidRimsNEM"
       }
     ],
     "params": [],

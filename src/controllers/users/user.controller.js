@@ -16,23 +16,17 @@ userController.createUser = async (req, res) => {
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Obtener el rol que se está asignando al usuario
-    const selectedRole = await Role.findById(role).populate('permissions');
+    // Obtener el objeto Role
+    const roleObject = await Role.findById(role);
 
-    // Crear usuario con rol correspondiente y agregar los permisos del rol
+    // Crear usuario con rol correspondiente
     const user = await User.create({
       name,
       email,
       password: hashedPassword,
       isActive,
-      role: [selectedRole._id], // Agregar el ID del rol al que pertenece el usuario
+      role: [roleObject],
     });
-
-    user.role[0].permissions = selectedRole.permissions.map(
-      (permission) => permission._id
-    ); // Agregar los permisos del rol al usuario
-
-    await user.save(); // Guardar el usuario con los permisos
 
     // Mostrar el usuario con su rol y permisos correspondientes
     const userWithRole = await User.findById(user._id)
@@ -40,7 +34,7 @@ userController.createUser = async (req, res) => {
         path: 'role',
         populate: {
           path: 'permissions',
-          select: '_id name alias',
+          select: '_id alias',
         },
       })
       .select('-password');
@@ -59,10 +53,15 @@ userController.createUser = async (req, res) => {
 
 userController.getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find().populate('role').populate({
-      path: 'permissions',
-      select: 'name',
-    });
+    const users = await User.find()
+      .populate({
+        path: 'role',
+        populate: {
+          path: 'permissions',
+          select: '_id alias',
+        },
+      })
+      .select('-password');
 
     const filteredUsers = users.filter((user) => user.isActive);
 
@@ -78,7 +77,10 @@ userController.getAllUsers = async (req, res, next) => {
             return {
               _id: role._id,
               name: role.name,
-              permissions: role.permissionIds,
+              permissions: role.permissions.map((permission) => ({
+                _id: permission._id,
+                alias: permission.alias,
+              })),
             };
           }),
         };
@@ -91,9 +93,14 @@ userController.getAllUsers = async (req, res, next) => {
 
 userController.getUser = async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id)
-      .populate('role', 'name permissionIds')
-      .populate('permissionIds', 'name');
+    const user = await User.findById(req.params.id).populate({
+      path: 'role',
+      select: 'name permissions',
+      populate: {
+        path: 'permissions',
+        select: 'name',
+      },
+    });
 
     if (!user || !user.isActive) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -108,7 +115,7 @@ userController.getUser = async (req, res, next) => {
         return {
           _id: role._id,
           name: role.name,
-          permissions: role.permissionIds.map((permission) => permission._id),
+          permissions: role.permissions.map((permission) => permission.name),
         };
       }),
     });
@@ -128,16 +135,20 @@ userController.updateUser = async (req, res, next) => {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    const rolesArray = await Role.find({
-      _id: { $in: role },
-    });
+    let rolesArray, permissionsArray;
 
-    const permissionsArray = [];
-    for (let role of rolesArray) {
-      const permissionIds = await Permission.find({
-        _id: { $in: role.permissionIds },
+    if (role) {
+      rolesArray = await Role.find({
+        _id: { $in: role },
       });
-      permissionsArray.push(...permissionIds);
+
+      if (!rolesArray.length) {
+        return res.status(404).json({ message: 'Roles no encontrados' });
+      }
+
+      permissionsArray = await Permission.find({
+        role: { $in: role },
+      });
     }
 
     user.name = name || user.name;
@@ -167,9 +178,7 @@ userController.updateUser = async (req, res, next) => {
           return {
             _id: role._id,
             name: role.name,
-            permissionIds: role.permissionIds.map(
-              (permission) => permission._id
-            ),
+            permissionIds: role.permissions.map((permission) => permission._id),
           };
         }),
       },

@@ -1,32 +1,36 @@
 const User = require('../models/user/user.model');
-const sendAuthError = require('../utils/sendAuthError');
+const Role = require('../models/role/role.model');
 
-const checkPermissionsMiddleware = (permissionIds) => {
-  return async (req, res, next) => {
-    const userId = req.userId;
-    const user = await User.findById(userId).populate('roleId');
-    if (!user) {
-      return sendAuthError(res);
-    }
-    const role = user.roleId;
-    if (!role || !role.isActive) {
+const checkPermissionMiddleware = (permissions) => async (req, res, next) => {
+  try {
+    // Obtener el usuario y su rol con permisos correspondientes
+    const user = await User.findById(req.userId).populate('role');
+
+    // Verificar si el usuario tiene un rol asignado
+    if (!user.role || user.role.length === 0) {
       return res
         .status(403)
-        .json({ message: 'No tienes permisos para acceder a esta ruta' });
+        .json({ message: 'No tienes permiso para realizar esta acción' });
     }
-    const permissions = role.permissionIds.map((permission) =>
-      permission._id.toString()
-    );
-    const hasPermission = permissionIds.some((permissionId) =>
-      permissions.includes(permissionId)
-    );
-    if (!hasPermission) {
+
+    // Verificar si el rol tiene los permisos necesarios
+    const role = await Role.findById(user.role[0]).populate('permissions');
+    if (
+      !role.permissions ||
+      !role.permissions.some((permission) =>
+        permissions.includes(permission.alias)
+      )
+    ) {
       return res
         .status(403)
-        .json({ message: 'No tienes permisos para acceder a esta ruta' });
+        .json({ message: 'No tienes permiso para realizar esta acción' });
     }
+
     next();
-  };
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Error al verificar permisos' });
+  }
 };
 
-module.exports = checkPermissionsMiddleware;
+module.exports = checkPermissionMiddleware;

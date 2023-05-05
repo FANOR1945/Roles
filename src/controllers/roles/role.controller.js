@@ -1,13 +1,31 @@
 const Role = require('../../models/role/role.model');
 const roleController = {};
-roleController.createRole = async (req, res, next) => {
+roleController.createRole = async (req, res) => {
   try {
-    const role = await Role.create(req.body);
-    res.status(201).json({ success: true, data: role });
+    const { name, isActive, permissions } = req.body;
+
+    // Crear rol con permisos correspondientes
+    const role = await Role.create({
+      name,
+      isActive,
+      permissions,
+    });
+
+    // Mostrar el rol con sus permisos correspondientes
+    const roleWithPermissions = await Role.findById(role._id).populate({
+      path: 'permissions',
+      select: '_id alias',
+    });
+
+    return res
+      .status(201)
+      .json({ message: 'Rol creado con éxito', role: roleWithPermissions });
   } catch (error) {
-    next(error);
+    console.error(error);
+    return res.status(500).json({ message: 'Error al crear rol' });
   }
 };
+
 roleController.getAllRoles = async (req, res, next) => {
   try {
     const roles = await Role.find();

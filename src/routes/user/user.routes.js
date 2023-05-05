@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const authMiddleware = require('../../middlewares/auth.middleware');
-const checkPermissionsMiddleware = require('../../middlewares/checkPermission.middleware');
+const checkPermissionMiddleware = require('../../middlewares/checkPermission.middleware');
 const userController = require('../../controllers/users/user.controller');
 
 router.post(
   '/create_user',
   authMiddleware,
-
+  checkPermissionMiddleware(['Gestión de Usuarios']),
   userController.createUser
 );
 
