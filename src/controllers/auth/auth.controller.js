@@ -84,8 +84,8 @@ authController.getProfile = async (req, res) => {
 
 authController.logout = async (req, res) => {
   try {
-    const id = req.params; // Obtener el ID del usuario del middleware de autenticación
-    const user = await User.findById(id);
+    const user = await User.findById(req.userId);
+    // Obtener el ID del usuario del middleware de autenticación
 
     if (!user) {
       return res.status(401).json({ message: 'Usuario no encontrado' });
