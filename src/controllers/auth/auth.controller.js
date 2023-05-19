@@ -7,7 +7,6 @@ const User = require('../../models/user/user.model');
 const {
   credentialsValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
-
 const authController = {};
 
 authController.login = async (req, res) => {
@@ -38,8 +37,8 @@ authController.login = async (req, res) => {
       user.refreshToken = refreshToken;
       await user.save();
 
-      res.set('X-Access-Token', accessToken);
-      res.set('Authorization', refreshToken);
+      res.setHeader('X-Access-Token', accessToken);
+      res.setHeader('Authorization', refreshToken);
 
       return res.status(200).json({
         message: 'Inicio de sesión exitoso',
@@ -56,8 +55,6 @@ authController.login = async (req, res) => {
     }
   });
 };
-
-module.exports = authController;
 
 authController.getProfile = async (req, res) => {
   try {

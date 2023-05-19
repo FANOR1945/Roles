@@ -5,7 +5,10 @@ const bcrypt = require('bcrypt');
 const {
   userValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
-
+const {
+  generateAccessToken,
+  generateRefreshToken,
+} = require('../../config/tokenGenerator');
 const userController = {};
 
 userController.createUser = async (req, res) => {
@@ -35,6 +38,19 @@ userController.createUser = async (req, res) => {
           },
         })
         .select('-password');
+
+      const accessToken = generateAccessToken({
+        userId: user._id,
+        role: user.role,
+      });
+
+      const refreshToken = generateRefreshToken({
+        userId: user._id,
+        role: user.role,
+      });
+
+      res.setHeader('X-Access-Token', accessToken);
+      res.setHeader('Authorization', refreshToken);
 
       return res.status(201).json({
         message: 'Usuario creado con éxito',

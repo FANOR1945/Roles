@@ -1,3 +1,6 @@
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const sendAuthError = require('../utils/sendAuthError');
 const {
   verifyAccessToken,
   verifyRefreshToken,
@@ -17,19 +20,12 @@ const authMiddleware = async (req, res, next) => {
     let decodedAccessToken;
     if (accessToken) {
       decodedAccessToken = await verifyAccessToken(accessToken);
-      req.userId = decodedAccessToken.userId;
+      req.userId = decodedAccessToken.userId; // Guarda el ID del usuario en la solicitud
       next();
     } else if (refreshToken) {
       const decodedRefreshToken = await verifyRefreshToken(refreshToken);
-      req.userId = decodedRefreshToken.userId; // Assuming the user ID is stored in decodedRefreshToken.userId
-      const newAccessToken = await generateAccessToken({
-        userId: decodedRefreshToken.userId,
-      });
-      const newRefreshToken = await generateRefreshToken({
-        userId: decodedRefreshToken.userId,
-      });
-      res.set('X-Access-Token', newAccessToken);
-      res.set('Authorization', newRefreshToken);
+      req.userId = decodedRefreshToken.userId;
+
       next();
     }
   } catch (error) {
