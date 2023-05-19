@@ -8,7 +8,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-01T11:17:19.743Z",
-    "modified": "2023-05-05T22:31:08.361Z",
+    "modified": "2023-05-19T08:14:36.162Z",
     "headers": [
       {
         "name": "Authorization",
@@ -18,7 +18,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"sinthia\",\n  \"email\":\"siasdaasdfsdfsadsdddsadntia@gmail.com\",\n  \"password\":\"123456sasdsa\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
+      "raw": "{\n  \"name\":\"Ditmar\",\n  \"email\":\"dirmdsfdsfsdfdsfar@gmail.com\",\n  \"password\":\"1234asssssssssssssss56\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
       "form": []
     },
     "tests": []
@@ -162,11 +162,11 @@
     "colId": "5aad7e51-187f-4e42-9b43-e256313ca9b4",
     "containerId": "",
     "name": "getRole",
-    "url": "http://127.0.0.1:5000/roles/64542b29a70b9f840fba3981",
+    "url": "http://127.0.0.1:5000/roles/645441accf751dc8c715ff3c",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-05-01T21:14:44.583Z",
-    "modified": "2023-05-04T22:05:10.282Z",
+    "modified": "2023-05-18T21:18:19.814Z",
     "headers": [
       {
         "name": "Authorization",
@@ -223,7 +223,7 @@
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-05-01T21:31:43.498Z",
-    "modified": "2023-05-05T00:06:50.604Z",
+    "modified": "2023-05-18T22:12:48.898Z",
     "headers": [
       {
         "name": "Authorization",
@@ -358,14 +358,52 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-05T23:02:01.320Z",
-    "modified": "2023-05-05T23:31:55.885Z",
+    "modified": "2023-05-19T08:07:15.325Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n \n\n  \"email\":\"siasdaasdfsdfsadsdddsadntia@gmail.com\",\n    \"password\":\"1256sasdsa\"\n}",
+      "raw": "{\n \n\n   \"email\":\"stalin@gmail.com\",\n  \"password\":\"leninstalin\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "043a919e-ad0c-46a2-b0da-893da39fa733",
+    "colId": "f8acdd96-261b-45e6-affb-6bc43b305aa3",
+    "containerId": "",
+    "name": "Profile",
+    "url": "http://127.0.0.1:5000/auth/profile",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-05-18T08:59:07.788Z",
+    "modified": "2023-05-19T08:14:51.695Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDU0MzU1ZWRiYjQyN2M3ODExYzU0MWQiLCJpYXQiOjE2ODQ0ODQwNzQsImV4cCI6MTY4NDQ4NDk3NH0.nxzfBLu5lkR0ReaMqeMlrW9kyoeU2M6_Bu8M1wMloB0"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "8397e591-1742-4a2d-9638-5eb531d42526",
+    "colId": "f8acdd96-261b-45e6-affb-6bc43b305aa3",
+    "containerId": "",
+    "name": "Logout",
+    "url": "http://127.0.0.1:5000/auth/logout",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-05-18T19:43:26.431Z",
+    "modified": "2023-05-18T19:43:59.061Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NTQzNTVlZGJiNDI3Yzc4MTFjNTQxZCIsInJvbGUiOlsiNjQ1NDQ0MjMyMDliZjkxN2UwMjgzZjlhIl0sImlhdCI6MTY4NDQzODUyNiwiZXhwIjoxNjg0NDM5NDI2fQ.Ru5jQpZk4mMQ2clYSiV1KfSpq-EqIh5AuaIgX5iq9ao"
+      }
+    ],
+    "params": [],
     "tests": []
   }
 ]
