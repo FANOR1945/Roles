@@ -39,7 +39,6 @@ authController.login = async (req, res) => {
 
       res.setHeader('X-Access-Token', accessToken);
       res.setHeader('Authorization', refreshToken);
-
       return res.status(200).json({
         message: 'Inicio de sesión exitoso',
         user: {
