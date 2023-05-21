@@ -1,10 +1,6 @@
 const User = require('../models/user/user.model');
 const Role = require('../models/role/role.model');
 const bcrypt = require('bcrypt');
-const {
-  generateAccessToken,
-  generateRefreshToken,
-} = require('../config/tokenGenerator');
 
 const UserManagement = async (req, res, next) => {
   try {
@@ -33,20 +29,8 @@ const UserManagement = async (req, res, next) => {
       })
       .select('-password');
 
-    const accessToken = generateAccessToken({
-      userId: user._id,
-      role: user.role,
-    });
-
-    const refreshToken = generateRefreshToken({
-      userId: user._id,
-      role: user.role,
-    });
-
-    res.setHeader('X-Access-Token', accessToken);
-    res.setHeader('Authorization', refreshToken);
-
     res.locals.user = userWithRole;
+
     next();
   } catch (error) {
     console.error(error);

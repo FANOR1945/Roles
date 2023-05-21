@@ -415,17 +415,17 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-20T08:35:23.678Z",
-    "modified": "2023-05-20T08:38:15.808Z",
+    "modified": "2023-05-20T09:39:29.719Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY3NDJjMDBmZjA5Nzk0NDUzNGQ2YjgiLCJyb2xlIjpbIjY0NTQ0NDIzMjA5YmY5MTdlMDI4M2Y5YSJdLCJpYXQiOjE2ODQ1NzE4MDAsImV4cCI6MTY4NDU3MjcwMH0.tR6mkykGKPWolNNtJMzW-UJNj26-QLeSC34iacQGCe4"
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY4ODc0NDk4ZjYzYzQ4NDBhNDJlZmIiLCJyb2xlIjpbIjY0NTQ0NDIzMjA5YmY5MTdlMDI4M2Y5YSJdLCJpYXQiOjE2ODQ1NzU1NTcsImV4cCI6MTY4NDU3NjQ1N30.nYXS8X1d13Y7SOymFs3Gx-M5xKaw3aK3Z_BbCE5-IUw"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"fanorio2050\",\n  \"email\":\"Fanorio2050@gmail.com\",\n  \"password\":\"fanoriochoque\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
+      "raw": "{\n  \"name\":\"fanoriddo2050\",\n  \"email\":\"Fanorioddsdfsdfdsdsdsdddddd2050@gmail.com\",\n  \"password\":\"fanoridochoque\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
       "form": []
     },
     "tests": []

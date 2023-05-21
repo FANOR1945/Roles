@@ -4,11 +4,9 @@ const sendAuthError = require('../utils/sendAuthError');
 const {
   verifyAccessToken,
   verifyRefreshToken,
-  generateAccessToken,
-  generateRefreshToken,
 } = require('../config/tokenGenerator');
 
-const authMiddleware = async (req, res, next) => {
+const verifyMiddleware = async (req, res, next) => {
   const accessToken = req.headers['x-access-token'];
   const refreshToken = req.headers['authorization'];
 
@@ -33,4 +31,4 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-module.exports = authMiddleware;
+module.exports = verifyMiddleware;

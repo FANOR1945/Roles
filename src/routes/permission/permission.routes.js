@@ -1,22 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../../middlewares/auth.middleware');
+const verifyMiddleware = require('../../middlewares/verify.middleware');
 const permissionsController = require('../../controllers/permissions/permission.controller');
 
 // Crear permiso
 router.post(
   '/create_permission',
-  authMiddleware,
+  verifyMiddleware,
   permissionsController.createPermission
 );
 
 // Listar permisos
-router.get('/getAllp', authMiddleware, permissionsController.getAllPermissions);
+router.get(
+  '/getAllp',
+  verifyMiddleware,
+  permissionsController.getAllPermissions
+);
 
 // Obtener permiso por ID
-router.get('/:id', authMiddleware, permissionsController.getPermission);
+router.get('/:id', verifyMiddleware, permissionsController.getPermission);
 
 // Actualizar permiso
-router.put('/:id', authMiddleware, permissionsController.updatePermission);
+router.put('/:id', verifyMiddleware, permissionsController.updatePermission);
 
 module.exports = router;
