@@ -1,12 +1,10 @@
-const {
-  generateAccessToken,
-  generateRefreshToken,
-} = require('../../config/tokenGenerator');
 const bcrypt = require('bcrypt');
 const User = require('../../models/user/user.model');
 const {
   credentialsValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
+
+const tokenGeneratorMiddleware = require('../../middlewares/generator.middleware');
 const authController = {};
 
 authController.login = async (req, res) => {
@@ -24,29 +22,19 @@ authController.login = async (req, res) => {
         return res.status(401).json({ message: 'Credenciales inválidas' });
       }
 
-      const accessToken = generateAccessToken({
-        userId: user._id,
-        role: user.role,
-      });
+      res.locals.user = user;
+      tokenGeneratorMiddleware(req, res, async () => {
+        await user.save();
 
-      const refreshToken = generateRefreshToken({
-        userId: user._id,
-        role: user.role,
-      });
-
-      user.refreshToken = refreshToken;
-      await user.save();
-
-      res.setHeader('X-Access-Token', accessToken);
-      res.setHeader('Authorization', refreshToken);
-      return res.status(200).json({
-        message: 'Inicio de sesión exitoso',
-        user: {
-          _id: user._id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        },
+        return res.status(200).json({
+          message: 'Inicio de sesión exitoso',
+          user: {
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          },
+        });
       });
     } catch (error) {
       console.error(error);

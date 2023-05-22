@@ -2,7 +2,7 @@ const User = require('../models/user/user.model');
 const Role = require('../models/role/role.model');
 const bcrypt = require('bcrypt');
 
-const UserManagement = async (req, res, next) => {
+const userManagementMiddleware = async (req, res, next) => {
   try {
     const { name, email, password, isActive, role } = req.body;
 
@@ -30,7 +30,6 @@ const UserManagement = async (req, res, next) => {
       .select('-password');
 
     res.locals.user = userWithRole;
-
     next();
   } catch (error) {
     console.error(error);
@@ -43,4 +42,4 @@ const UserManagement = async (req, res, next) => {
   }
 };
 
-module.exports = UserManagement;
+module.exports = userManagementMiddleware;

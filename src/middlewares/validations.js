@@ -23,9 +23,9 @@ const credentialsValidations = [
     .notEmpty()
     .withMessage('El email es obligatorio')
     .isEmail()
-    .withMessage('Correo electrónico no válidol')
+    .withMessage('Correo electrónico no válido')
     .matches(/@gmail\.com$/)
-    .withMessage(' El correo electrónico debe ser una cuenta de Gmail '),
+    .withMessage('El correo electrónico debe ser una cuenta de Gmail'),
   body('password').notEmpty().withMessage('La contraseña es obligatoria'),
 ];
 

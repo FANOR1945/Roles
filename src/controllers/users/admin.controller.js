@@ -1,26 +1,26 @@
 const {
   userValidationMiddleware,
 } = require('../../middlewares/validation.middleware');
-const UserManagement = require('../../middlewares/userManagement.middleware');
+const userManagementMiddleware = require('../../middlewares/userManagement.middleware');
+const tokenGeneratorMiddleware = require('../../middlewares/generator.middleware');
 
 const adminController = {};
 
 adminController.createAdminUser = async (req, res) => {
   try {
-    // Validar los datos del administrador
     await userValidationMiddleware(req, res, async () => {
-      // Ejecutar el middleware para crear el usuario
-      await UserManagement(req, res, async () => {
-        // Ejecutar el middleware para generar los tokens
+      await userManagementMiddleware(req, res, async () => {
+        await tokenGeneratorMiddleware(req, res, async () => {
+          const user = res.locals.user;
+          const tokens = res.locals.tokens;
 
-        const user = res.locals.user;
+          user.refreshToken = tokens.refreshToken;
+          await user.save();
 
-        user.refreshToken = tokens.refreshToken;
-        await user.save();
-
-        return res.status(201).json({
-          message: 'Usuario creado con éxito',
-          user: userWithRole,
+          return res.status(201).json({
+            message: 'Administrador creado con éxito',
+            user,
+          });
         });
       });
     });
