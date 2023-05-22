@@ -48,16 +48,38 @@ roleController.getRole = async (req, res, next) => {
 };
 roleController.updateRole = async (req, res, next) => {
   try {
-    const role = await Role.findByIdAndUpdate(
-      req.params.id,
-      { $push: { permissions: req.body.permissions } },
-      { new: true }
-    );
+    const { id } = req.params;
+    const { permissions } = req.body;
+
+    const role = await Role.findById(id);
+
     if (!role) {
       return res
         .status(404)
         .json({ success: false, message: 'Role not found' });
     }
+
+    // Eliminar permisos existentes que no están en el arreglo enviado
+    role.permissions = role.permissions.filter((permission) =>
+      permissions.includes(permission)
+    );
+
+    // Agregar nuevos permisos al arreglo
+    permissions.forEach((permission) => {
+      if (!role.permissions.includes(permission)) {
+        role.permissions.push(permission);
+      } else {
+        return res
+          .status(400)
+          .json({
+            success: false,
+            message: 'Permission already exists in this role',
+          });
+      }
+    });
+
+    await role.save();
+
     res.status(200).json({ success: true, data: role });
   } catch (error) {
     next(error);
