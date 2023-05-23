@@ -422,7 +422,7 @@
     "method": "POST",
     "sortNum": 10000,
     "created": "2023-05-20T08:35:23.678Z",
-    "modified": "2023-05-22T07:38:00.955Z",
+    "modified": "2023-05-23T00:36:32.356Z",
     "headers": [
       {
         "name": "Authorization",
@@ -432,7 +432,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\":\"Pablito\",\n  \"email\":\"pablito@gmail.com\",\n  \"password\":\"pablito1990\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
+      "raw": "{\n  \"name\":\"Pablito\",\n  \"email\":\"pablito195@gmail.com\",\n  \"password\":\"pablito1990\",\n  \"isActive\":true,\n  \"role\":[\"64544423209bf917e0283f9a\"]\n}",
       "form": []
     },
     "tests": []

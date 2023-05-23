@@ -26,14 +26,17 @@ authController.login = async (req, res) => {
       tokenGeneratorMiddleware(req, res, async () => {
         await user.save();
 
+        // Devuelve el token de acceso en el cuerpo de la respuesta
         return res.status(200).json({
           message: 'Inicio de sesión exitoso',
+
           user: {
             _id: user._id,
             name: user.name,
             email: user.email,
             role: user.role,
           },
+          accessToken: res.locals.tokens.accessToken,
         });
       });
     } catch (error) {
